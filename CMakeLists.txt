@@ -41,11 +41,14 @@ if(MSVC)
   set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /MTd /source-charset:utf-8")
 endif()
 
+message("CXXCOMPILER!!!!! ${CMAKE_CXX_COMPILER_ID}")
+
 if("${CMAKE_CXX_COMPILER_ID}" STREQUAL "Clang")
 #  set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ftemplate-depth=1024 -stdlib=libc++")
 #  include_directories(/usr/include/libcxxabi)
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -ftemplate-depth=1024")
   set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+  link_libraries("-stdlib=libc++")
 endif()
 
 set(CGL_EIGEN_TARGET_DIR "eigen")
